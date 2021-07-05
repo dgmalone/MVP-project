@@ -1,0 +1,10 @@
+.tempFlex {
+  display: grid;
+  grid-template-columns: 75px 50px 75px 75px 50px 75px 75px 75px 100px;
+}
+p {
+  font-size: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}

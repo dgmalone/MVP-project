@@ -8,6 +8,8 @@ app.get('/', (req, res) => {
   res.send('Test')
 })
 
+// format the date and $ data to look better on the front end before sending it
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
