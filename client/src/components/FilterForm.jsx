@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 
 function FilterForm(props) {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(true);
+  const [searchName, setSearchName] = useState('')
   const [values, setValues] = useState({
     FA: '',
     Counsel: '',
@@ -14,10 +15,21 @@ function FilterForm(props) {
     SaleType: '',
     Issuer: ''
   })
-
+  const toggleOpen = (event) => {
+    setOpen(!open)
+  }
   const handleChange = (event) => {
     let name = event.target.name
     setValues({...values, [name]: event.target.value})
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setOpen(false);
+    console.log(values)
+    // call to server ?
+  }
+  const changeSearchName = (event) => {
+    setSearchName(event.target.value)
   }
   // Issuer:			D, F (low)
 // Underwriter:		D, F (low)
@@ -25,10 +37,13 @@ function FilterForm(props) {
 // CAB Flag:		D, F (low)
 // Guarantor:		D, F (low)
 // Discl Counsel:		D, F (low)
+if (!open) {
+  return <button onClick={toggleOpen}>Expand Filter </button>
+}
   return (
     <div>
       Filter Search:
-      <form className='filter-form'>
+      <form className='filter-form' onSubmit={handleSubmit}>
         <label>
           Financial Advisor: <input type='text' name='FA' value={values.FA} onChange={handleChange}/>
         </label>
@@ -51,7 +66,18 @@ function FilterForm(props) {
         <label>
            Debt Type: <input type='text' name='DebtType' value={values.DebtType} onChange={handleChange}/>
         </label >
-
+        <button>Filter Search</button>
+      </form>
+      <button onClick={toggleOpen}>
+        Collapse Filter
+      </button>
+      <form>
+      <label>
+        <input type='text' name='nameSearch' value={searchName} onChange={changeSearchName}/>
+      </label>
+      <button>
+        Save Search
+      </button>
       </form>
     </div>
   )

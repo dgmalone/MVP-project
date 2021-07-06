@@ -8,6 +8,13 @@ app.get('/', (req, res) => {
   res.send('Test')
 })
 
+app.get('/Bonds', (req, res) => {
+
+})
+
+app.post('/Bonds', (req, res) => {
+
+})
 // format the date and $ data to look better on the front end before sending it
 
 app.listen(port, () => {
