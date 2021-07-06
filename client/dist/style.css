@@ -2,6 +2,12 @@
   display: grid;
   grid-template-columns: 75px 50px 75px 75px 50px 75px 75px 75px 100px;
 }
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+}
+
 p {
   font-size: 10px;
   border-style: solid;
