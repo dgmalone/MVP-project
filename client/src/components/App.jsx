@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import BondList from './BondList.jsx';
 import FilterForm from './FilterForm.jsx';
+import helpers from '../helpers.js';
+
 function App() {
   const [bonds, setBonds] = useState([
     {
@@ -296,8 +298,12 @@ useEffect ( () => {
       count++
     }
   })
-  console.log( plcFeeSum, count)
-  setAve({...averages, 'financial_advisor_fee': plcFeeSum / count})
+  //console.log( plcFeeSum, count)
+  setAve({
+    'placement_agent_fee': helpers.findAverage('financial_advisor_fee', bonds), 'financial_advisor_fee': helpers.findAverage('financial_advisor_fee', bonds),
+    'bond_counsel_fee': helpers.findAverage('bond_counsel_fee', bonds),
+    'disclosure_counsel_fee': helpers.findAverage('disclosure_counsel_fee', bonds)
+  })
 
 }, [bonds])
 
@@ -316,9 +322,11 @@ useEffect ( () => {
           </li>
           <li>
             Bond Counsel Fee:
+            {averages.bond_counsel_fee}
           </li>
           <li>
-            Discl Counsel Fee:
+            Disclourse Counsel Fee:
+            {averages.disclosure_counsel_fee}
           </li>
         </ul>
       </div>
