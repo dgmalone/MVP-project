@@ -28,7 +28,10 @@ function FilterForm(props) {
     //console.log(values)
     // call to server ?
     serverCalls.getData(values)
-
+      .then(results => {
+        console.log('returned:', results)
+        props.setNewBonds(results)
+      })
   }
   const changeSearchName = (event) => {
     setSearchName(event.target.value)

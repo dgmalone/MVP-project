@@ -24,7 +24,7 @@ serverCalls.getData = (filters) => {
 
   return axios.get(serverURL + '/Bonds', { params })
     .then(results => {
-      //console.log(results.data.results);
+      console.log(results.data);
       return results.data;
     })
     .catch(err => { return console.log('test', err); });

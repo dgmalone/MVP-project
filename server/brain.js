@@ -11,17 +11,34 @@ APIcalls.fetchData = (filter) => {
   const refMin = filter.RefundAmtMin ? filter.RefundAmtMin : 0;
   const refMax = filter.RefundAmtMax ? filter.RefundAmtMax : 1000000000000
   let params = {
-    bond_consel: filter.Counsel,
-    debt_type: filter.DebtType,
-    financial_advisor: filter.FA,
-    issuer: filter.Issuer,
-    issuer_type: filter.IssuerType,
-    $where: 'refunding_amount >= ' + refMin + ' AND refunding_amount <= ' + refMax + ' AND sale_date >= ' + saleMax + ' AND sale_date <= ' + saleMax
+    //bond_counsel: filter.Counsel,
+    // debt_type: filter.DebtType,
+    // financial_advisor: filter.FA,
+    // issuer: filter.Issuer,
+    // issuer_type: filter.IssuerType,
+    $where: 'refunding_amount >= ' + refMin + ' AND refunding_amount <= ' + refMax + ' AND sale_date >= "' + saleMin + '" AND sale_date <= "' + saleMax + '"'
   }
+  console.log('this is counsol: ', filter.Counsel)
+  if (filter.Counsel !== '') {
+    params.bond_counsel = filter.Counsel;
+  }
+  if (filter.DebtType !== '') {
+    params.debt_type = filter.DebtType;
+  }
+  if (filter.FA !== '') {
+    params.financial_advisor = filter.FA;
+  }
+  if (filter.Issuer !== '') {
+    params.issuer = filter.Issuer;
+  }
+  if (filter.IssuerType !== '') {
+    params.issuer_type = filter.IssuerType;
+  }
+
   let headers = config.auth.headers
   //console.log(params)
   console.log({params, headers})
-  //axios.get(config.url, {params, headers})
+  return axios.get(config.url, {params, headers})
 }
 
 module.exports = APIcalls;

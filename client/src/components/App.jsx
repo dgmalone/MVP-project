@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import BondList from './BondList.jsx';
 import FilterForm from './FilterForm.jsx';
 function App() {
@@ -260,10 +260,69 @@ function App() {
         "bond_counsel": "Orrick Herrington & Sutcliffe LLP"
     }
 ])
+  const updateBondList = (data) => {
+    console.log(data)
+    setBonds(data)
+  }
+  const [averages, setAve] = useState({
+    placement_agent_fee: 0,
+    financial_advisor_fee: 0,
+    bond_counsel_fee: 0,
+    disclosure_counsel_fee: 0
+  })
+  useEffect ( () => {
+    // abstract this to call another function that takes the name then does this same thing
+    let plcFeeSum = 0;
+    let count = 0;
+    bonds.forEach(bond => {
+      if (bond.placement_agent_fee) {
+        console.log(bond.placement_agent_fee)
+        plcFeeSum += parseInt(bond.placement_agent_fee);
+        count++
+      }
+    })
+    console.log( plcFeeSum, count)
+    setAve({...averages, 'placement_agent_fee': plcFeeSum / count})
+
+  }, [bonds])
+
+useEffect ( () => {
+  let plcFeeSum = 0;
+  let count = 0;
+  bonds.forEach(bond => {
+    if (bond.financial_advisor_fee) {
+      console.log(bond.financial_advisor_fee)
+      plcFeeSum += parseInt(bond.financial_advisor_fee);
+      count++
+    }
+  })
+  console.log( plcFeeSum, count)
+  setAve({...averages, 'financial_advisor_fee': plcFeeSum / count})
+
+}, [bonds])
 
   return (
     <div>TestApp
-      <FilterForm />
+      <div>
+        Averages:
+        <ul>
+          <li>
+            Placement Agent Fee:
+            {averages.placement_agent_fee}
+          </li>
+          <li>
+            FA Fee:
+            {averages.financial_advisor_fee}
+          </li>
+          <li>
+            Bond Counsel Fee:
+          </li>
+          <li>
+            Discl Counsel Fee:
+          </li>
+        </ul>
+      </div>
+      <FilterForm setNewBonds={updateBondList}/>
       <BondList bonds={bonds}/>
     </div>
   )

@@ -16,6 +16,16 @@ app.get('/Bonds', (req, res) => {
 
   //res.send(req.body)
   APIcalls.fetchData(JSON.parse(req.query.filters))
+    .then(results => {
+      console.log(results.data)
+      res.send(results.data)
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(400)
+      res.send(err)
+    }
+    )
   // headers X-App-Token
 
 })
