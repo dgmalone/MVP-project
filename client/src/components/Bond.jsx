@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 function Bond(props) {
   // expanded or collappsed
+  // format date and money amounts
   return (
     <div className='tempFlex'>
       <p>

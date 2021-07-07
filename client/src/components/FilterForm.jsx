@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import serverCalls from '../Controller.js'
 function FilterForm(props) {
   const [open, setOpen] = useState(true);
   const [searchName, setSearchName] = useState('')
@@ -25,11 +25,17 @@ function FilterForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     setOpen(false);
-    console.log(values)
+    //console.log(values)
     // call to server ?
+    serverCalls.getData(values)
+
   }
   const changeSearchName = (event) => {
     setSearchName(event.target.value)
+  }
+  const saveSearch = (event) => {
+    // call server
+
   }
   // Issuer:			D, F (low)
 // Underwriter:		D, F (low)
@@ -71,7 +77,7 @@ if (!open) {
       <button onClick={toggleOpen}>
         Collapse Filter
       </button>
-      <form>
+      <form onSubmit={saveSearch}>
       <label>
         <input type='text' name='nameSearch' value={searchName} onChange={changeSearchName}/>
       </label>
