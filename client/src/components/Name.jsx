@@ -39,7 +39,7 @@ function Name(props) {
       </form>
       <button onClick={() => setOpen(true)}>Update Search</button>
       <button onClick={cancelEdit}>Cancel</button>
-      <Modal open={open} filters={props.filters} id={props.id} closePopup={handlePopCancel} handleUpdateFilter={props.handleUpdateFilter}/>
+      <Modal open={open} filters={props.filters} searchName={props.searchName} id={props.id} closePopup={handlePopCancel} handleUpdateFilter={props.handleUpdateFilter}/>
       </>
     )
   }

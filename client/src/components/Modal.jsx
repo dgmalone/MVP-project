@@ -62,6 +62,7 @@ function Modal (props) {
     <div>
       <div style={overlay_styles}/>
       <div style={modal_styles}>
+      <h1>Update {props.searchName} search</h1>
         <button onClick={props.closePopup}>Exit</button>
         <div style={form_style}>
         <form className='filter-form' onSubmit={handleSubmit}>

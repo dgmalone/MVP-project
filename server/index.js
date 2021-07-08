@@ -66,9 +66,20 @@ app.put('/Favorites/Delete', (req, res) => {
     }
   })
 })
-app.put('/Favorites/Update', (req, res) => {
+app.put('/Favorites/UpdateName', (req, res) => {
   //console.log(req.query, req.body);
   sfDb.updateFav(req.body, (err, docs) => {
+    if (err) {
+      res.status(400);
+      res.send(err)
+    } else {
+      res.send(docs);
+    }
+  })
+})
+app.put('/Favorites/UpdateFilters', (req, res) => {
+  //console.log(req.query, req.body);
+  sfDb.updateFavFilter(req.body, (err, docs) => {
     if (err) {
       res.status(400);
       res.send(err)

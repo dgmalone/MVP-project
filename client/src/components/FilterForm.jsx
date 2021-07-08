@@ -52,22 +52,33 @@ function FilterForm(props) {
       SaleType: '',
       Issuer: ''
     }
-    setValues({...emptyVals, ...filters})
+    serverCalls.getData(filters)
+      .then(results => {
+        setValues({...emptyVals, ...filters})
+        props.setNewBonds(results)
+      })
   }
 
 
 if (!open) {
-  return <button onClick={toggleOpen}>Expand Filter </button>
-}
   return (
     <div>
-      <button onClick={toggleOpen}>
-        Collapse Filter
-      </button>
       <div>
       Saved Searches:
         <SavedSearches  saveSearch={saveSearch} handleSavedClick={clickOnSaved} userName={props.userName}/>
       </div>
+      <button onClick={toggleOpen}>Expand Filter v</button>
+    </div> )
+}
+  return (
+    <div>
+      <div>
+      Saved Searches:
+        <SavedSearches  saveSearch={saveSearch} handleSavedClick={clickOnSaved} userName={props.userName}/>
+      </div>
+      <button onClick={toggleOpen}>
+        Collapse Filter
+      </button>
       Filter Search:
       <form className='filter-form' onSubmit={handleSubmit}>
         <label>

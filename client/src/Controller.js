@@ -65,7 +65,7 @@ serverCalls.updateSearch = (id, newName) => {
 }
 
 serverCalls.updateSearchFilters = (id, filters) => {
-  return axios.put(serverURL + '/Favorites/UpdateFilter', {id, filters})
+  return axios.put(serverURL + '/Favorites/UpdateFilters', {id, filters})
     .then(results => {
       console.log(results.data);
       return results.data;

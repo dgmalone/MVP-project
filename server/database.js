@@ -19,6 +19,13 @@ exports.updateFav = (data, callback) => {
   })
 }
 
+exports.updateFavFilter = (data, callback) => {
+  //console.log(data);
+  Favorites.findOneAndUpdate({_id: data.id}, {filters: data.filters}, (err, docs) => {
+    callback(err, docs)
+  })
+}
+
 exports.saveFilter = (data, callback) => {
   //console.log('saveFilter data:', data);
   Favorites.create(data, (err, docs) => {
