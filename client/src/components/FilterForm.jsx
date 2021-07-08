@@ -1,8 +1,65 @@
-import React, {useState} from 'react';
-import serverCalls from '../Controller.js'
+import React, {useState, useEffect} from 'react';
+import serverCalls from '../Controller.js';
+import SavedSearches from './SavedSearches.jsx';
 function FilterForm(props) {
   const [open, setOpen] = useState(true);
-  const [searchName, setSearchName] = useState('')
+  const [savedList, setSavedList] = useState([
+    {
+        "filters": {
+            "FA": "",
+            "Counsel": "",
+            "SaleDateStart": "",
+            "SaleDateEnd": "",
+            "IssuerType": "",
+            "DebtType": "",
+            "RefundAmtMin": "",
+            "RefundAmtMax": "",
+            "SaleType": "",
+            "Issuer": ""
+        },
+        "_id": "60e650582a16634286894268",
+        "userName": "test",
+        "searchName": "bleh",
+        "__v": 0
+    },
+    {
+        "filters": {
+            "FA": "testnew",
+            "Counsel": "",
+            "SaleDateStart": "",
+            "SaleDateEnd": "",
+            "IssuerType": "",
+            "DebtType": "",
+            "RefundAmtMin": "",
+            "RefundAmtMax": "",
+            "SaleType": "",
+            "Issuer": ""
+        },
+        "_id": "60e653ebba1792433c209dc7",
+        "userName": "test",
+        "searchName": "bleh2",
+        "__v": 0
+    },
+    {
+      "filters": {
+          "FA": "",
+          "Counsel": "",
+          "SaleDateStart": "2011-07-07",
+          "SaleDateEnd": "2011-07-07",
+          "IssuerType": "",
+          "DebtType": "",
+          "RefundAmtMin": "",
+          "RefundAmtMax": "",
+          "SaleType": "",
+          "Issuer": ""
+      },
+      "_id": "60e661f2c4a87c467aa48544",
+      "userName": "test",
+      "searchName": "7-7-2011",
+      "__v": 0
+  }
+])
+  const [searchName, setSearchName] = useState('');
   const [values, setValues] = useState({
     FA: '',
     Counsel: '',
@@ -37,10 +94,21 @@ function FilterForm(props) {
     setSearchName(event.target.value)
   }
   const saveSearch = (event) => {
+
     // call server
     event.preventDefault();
     serverCalls.saveSearch('test', searchName, values)
   }
+  const clickOnSaved = (event) => {
+    const index = event.target.id;
+    setValues(savedList[index].filters)
+  }
+  useEffect (() => {
+    serverCalls.getSearches(props.userName)
+      .then(results => {
+        setSavedList(results)
+      })
+  }, [props.userName])
   // Issuer:			D, F (low)
 // Underwriter:		D, F (low)
 // Placement Agent:	D, F (low)
@@ -52,6 +120,10 @@ if (!open) {
 }
   return (
     <div>
+      Saved Searches:
+      <div>
+        <SavedSearches  searches={savedList} handleSavedClick={clickOnSaved}/>
+      </div>
       Filter Search:
       <form className='filter-form' onSubmit={handleSubmit}>
         <label>

@@ -266,6 +266,7 @@ function App() {
     console.log(data)
     setBonds(data)
   }
+  const [userName, setUserName] = useState('test')
   const [averages, setAve] = useState({
     placement_agent_fee: 0,
     financial_advisor_fee: 0,
@@ -330,7 +331,7 @@ useEffect ( () => {
           </li>
         </ul>
       </div>
-      <FilterForm setNewBonds={updateBondList}/>
+      <FilterForm setNewBonds={updateBondList} userName={userName}/>
       <BondList bonds={bonds}/>
     </div>
   )

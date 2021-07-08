@@ -27,11 +27,20 @@ serverCalls.saveSearch = (userName, searchName, filters) => {
   console.log('dat', data)
   return axios.post(serverURL + '/Bonds', data)
     .then(results => {
-      console.log(results.data);
       return results.data;
     })
     .catch(err => { return console.log('test', err); });
 }
 
+serverCalls.getSearches = (userName) => {
+  console.log(userName)
+  let params = { userName }
+  return axios.get(serverURL + '/Favorites', {params})
+    .then(results => {
+      console.log(results.data);
+      return results.data;
+    })
+    .catch(err => { return console.log('test', err); });
+}
 
 export default serverCalls

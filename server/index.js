@@ -41,21 +41,11 @@ app.post('/Bonds', (req, res) => {
       res.send(docs);
     }
   })
-    // .then(results => {
-    //   console.log(results)
-    //   res.send(results)
-    // })
-    // .catch(err => {
-    //   console.log(err)
-    //   res.status(400)
-    //   res.send(err)
-    // }
-    //)
 })
 
 app.get('/Favorites', (req, res) => {
-  //console.log(req.body);
-  sfDb.getFavs(req.body.userName, (err, docs) => {
+  console.log(req.query);
+  sfDb.getFavs(req.query.userName, (err, docs) => {
     if (err) {
       res.status(400);
       res.send(err)
@@ -63,10 +53,6 @@ app.get('/Favorites', (req, res) => {
       res.send(docs);
     }
   })
-    // .then(results => {
-    //   console.log(results.data)
-    //   res.send(results.data)
-    // })
 })
 // format the date and $ data to look better on the front end before sending it
 

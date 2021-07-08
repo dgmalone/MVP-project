@@ -1,8 +1,8 @@
 const Favorites = require('./db/Favorites.js')
 
 exports.getFavs = (userName, callback)=> {
-  console.log('test', userName)
-  Favorites.find({}, (err, docs) => {
+  // filter favoirtes by username
+  Favorites.find({userName}, (err, docs) => {
     callback(err, docs)
   })
 }
