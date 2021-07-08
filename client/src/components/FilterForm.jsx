@@ -38,7 +38,8 @@ function FilterForm(props) {
   }
   const saveSearch = (event) => {
     // call server
-
+    event.preventDefault();
+    serverCalls.saveSearch('test', searchName, values)
   }
   // Issuer:			D, F (low)
 // Underwriter:		D, F (low)

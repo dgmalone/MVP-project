@@ -6,18 +6,6 @@ let serverURL = 'http://localhost:3000';
 
 serverCalls.getData = (filters) => {
 
-  // let data = JSON.stringify(filters);
-  // console.log(data)
-  // axios({
-  //   url: 'http://localhost:3000/Bonds',
-  //   method: "get",
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   data: 'data'
-  // })
-  //  .then(results => {return results.data})
-  //  .catch(err => {return err})
   let params = {
     filters: filters
   };
@@ -29,6 +17,20 @@ serverCalls.getData = (filters) => {
     })
     .catch(err => { return console.log('test', err); });
 
+}
+serverCalls.saveSearch = (userName, searchName, filters) => {
+  let data = {
+    filters: filters,
+    userName: 'test',
+    searchName: searchName
+  };
+  console.log('dat', data)
+  return axios.post(serverURL + '/Bonds', data)
+    .then(results => {
+      console.log(results.data);
+      return results.data;
+    })
+    .catch(err => { return console.log('test', err); });
 }
 
 
