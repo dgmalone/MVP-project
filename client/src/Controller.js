@@ -20,7 +20,7 @@ serverCalls.getData = (filters) => {
 serverCalls.saveSearch = (userName, searchName, filters) => {
   let data = {
     filters: filters,
-    userName: 'test',
+    userName: userName,
     searchName: searchName
   };
   //console.log('dat', data)
@@ -43,7 +43,18 @@ serverCalls.getSearches = (userName) => {
 }
 
 serverCalls.deleteSearch = (id) => {
-  return axios.put(serverURL + '/Favorites', {id})
+  return axios.put(serverURL + '/Favorites/Delete', {id})
+    .then(results => {
+      console.log(results.data);
+      return results.data;
+    })
+    .catch(err => {
+      console.log(err)
+      return err; });
+}
+
+serverCalls.updateSearch = (id, newName) => {
+  return axios.put(serverURL + '/Favorites/Update', {id, newName})
     .then(results => {
       console.log(results.data);
       return results.data;

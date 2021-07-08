@@ -6,7 +6,6 @@ function BondList(props) {
 
   return (
     <div>
-      Test
       <Columns />
       {props.bonds.map( (bond, index)=> {
       return <Bond info={bond} key={index}/>

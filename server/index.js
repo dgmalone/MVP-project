@@ -55,9 +55,20 @@ app.get('/Favorites', (req, res) => {
   })
 })
 
-app.put('/Favorites', (req, res) => {
+app.put('/Favorites/Delete', (req, res) => {
   //console.log(req.query, req.body);
   sfDb.deleteFav(req.body.id, (err, docs) => {
+    if (err) {
+      res.status(400);
+      res.send(err)
+    } else {
+      res.send(docs);
+    }
+  })
+})
+app.put('/Favorites/Update', (req, res) => {
+  //console.log(req.query, req.body);
+  sfDb.updateFav(req.body, (err, docs) => {
     if (err) {
       res.status(400);
       res.send(err)

@@ -1,6 +1,6 @@
 .tempFlex {
   display: grid;
-  grid-template-columns: 75px 50px 75px 75px 50px 75px 75px 75px 100px;
+  grid-template-columns: 8% 10% 9% 9% 8% 9% 9% 9% 10%;
 }
 
 .filter-form {
@@ -9,7 +9,7 @@
 }
 
 p {
-  font-size: 10px;
+  font-size: 12px;
   border-style: solid;
   border-color: black;
   border-width: 1px;

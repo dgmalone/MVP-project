@@ -12,6 +12,12 @@ exports.deleteFav = (id, callback) => {
     callback(err, docs)
   })
 }
+exports.updateFav = (data, callback) => {
+  //console.log(data);
+  Favorites.findOneAndUpdate({_id: data.id}, {searchName: data.newName}, (err, docs) => {
+    callback(err, docs)
+  })
+}
 
 exports.saveFilter = (data, callback) => {
   //console.log('saveFilter data:', data);

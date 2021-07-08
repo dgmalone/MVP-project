@@ -8,7 +8,8 @@ function App() {
   const updateBondList = (data) => {
     setBonds(data)
   }
-  const [userName, setUserName] = useState('test')
+  const [userName, setUserName] = useState('')
+  const [inputName, setInputName] = useState('')
   const [averages, setAve] = useState({
     placement_agent_fee: 0,
     financial_advisor_fee: 0,
@@ -16,6 +17,14 @@ function App() {
     disclosure_counsel_fee: 0
   })
 
+  const updateUserName = () => {
+    event.preventDefault()
+    setUserName(inputName)
+  }
+  const handleChange = (event) => {
+    event.preventDefault()
+    setInputName(event.target.value)
+  }
   useEffect ( () => {
     setAve({
       'placement_agent_fee': helpers.findAverage('placement_agent_fee', bonds),
@@ -28,9 +37,9 @@ function App() {
 
   return (
     <div>
-      <form >
+      <form onSubmit={updateUserName}>
       <label>
-        <input type='text' name='userName'/>
+        <input type='text' name='userName' value={inputName} onChange={handleChange} required/>
       </label>
       <button>
         Confirm Username

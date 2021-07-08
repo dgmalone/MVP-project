@@ -54,12 +54,6 @@ function FilterForm(props) {
     }
     setValues({...emptyVals, ...filters})
   }
-  // useEffect (() => {
-  //   serverCalls.getSearches(props.userName)
-  //     .then(results => {
-  //       setSavedList(results)
-  //     })
-  // }, [props.userName])
 
 
 if (!open) {
@@ -67,17 +61,12 @@ if (!open) {
 }
   return (
     <div>
-      Saved Searches:
-      <div>
-        <SavedSearches  saveSearch={saveSearch} handleSavedClick={clickOnSaved} userName={props.userName}/>
-      {/* <form onSubmit={saveSearch}>
-      <label>
-        <input type='text' name='nameSearch' value={searchName} onChange={changeSearchName}/>
-      </label>
-      <button>
-        Save Search
+      <button onClick={toggleOpen}>
+        Collapse Filter
       </button>
-      </form> */}
+      <div>
+      Saved Searches:
+        <SavedSearches  saveSearch={saveSearch} handleSavedClick={clickOnSaved} userName={props.userName}/>
       </div>
       Filter Search:
       <form className='filter-form' onSubmit={handleSubmit}>
@@ -105,9 +94,6 @@ if (!open) {
         </label >
         <button>Filter Search</button>
       </form>
-      <button onClick={toggleOpen}>
-        Collapse Filter
-      </button>
     </div>
   )
 }
