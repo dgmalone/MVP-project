@@ -9,13 +9,13 @@ function SavedSearchButton(props) {
     props.handleSavedClick(filters)
   }
   return (
-    <div>
-      <Name searchName={props.info.searchName} id={props.info._id} updateSearchName={props.updateSearchName}/>
+    <div className="edit-savedSearch">
+      <Name searchName={props.info.searchName} id={props.info._id} filters={props.info.filters} updateSearchName={props.updateSearchName} handleUpdateFilter={props.handleUpdateFilter}/>
       {/* <h1 onClick>
       {props.info.searchName}
       </h1> */}
       <button onClick={handleSet} id={props.id}>
-        Set
+        Apply
       </button>
       <button onClick={props.deleteSearch} id={props.info._id} name={props.info.searchName}>
         Delete

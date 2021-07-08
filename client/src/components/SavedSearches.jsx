@@ -48,6 +48,16 @@ function SavedSearches(props) {
       return 'close'
     })
   }
+  const handleUpdateFilter = (id, filters) => {
+    return serverCalls.updateSearchFilters(id, filters)
+    .then(res => {
+      return serverCalls.getSearches(props.userName)
+    })
+    .then(results => {
+      setSavedList(results)
+      return 'test'
+    })
+  }
   useEffect (() => {
     serverCalls.getSearches(props.userName)
       .then(results => {
@@ -58,7 +68,7 @@ function SavedSearches(props) {
   return (
     <div>
       {savedList.map( (search, index) => {
-        return <SavedSearchButton key={index} id={index} handleSavedClick={props.handleSavedClick}  info={search} deleteSearch={deleteSearch} updateSearchName={updateSearchName}/>
+        return <SavedSearchButton key={index} id={index} handleSavedClick={props.handleSavedClick}  info={search} deleteSearch={deleteSearch} updateSearchName={updateSearchName} handleUpdateFilter={handleUpdateFilter}/>
       })}
       <form onSubmit={saveFiltersAsSearch}>
       <label>

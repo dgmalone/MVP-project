@@ -54,7 +54,18 @@ serverCalls.deleteSearch = (id) => {
 }
 
 serverCalls.updateSearch = (id, newName) => {
-  return axios.put(serverURL + '/Favorites/Update', {id, newName})
+  return axios.put(serverURL + '/Favorites/UpdateName', {id, newName})
+    .then(results => {
+      console.log(results.data);
+      return results.data;
+    })
+    .catch(err => {
+      console.log(err)
+      return err; });
+}
+
+serverCalls.updateSearchFilters = (id, filters) => {
+  return axios.put(serverURL + '/Favorites/UpdateFilter', {id, filters})
     .then(results => {
       console.log(results.data);
       return results.data;
