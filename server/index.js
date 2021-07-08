@@ -44,8 +44,20 @@ app.post('/Bonds', (req, res) => {
 })
 
 app.get('/Favorites', (req, res) => {
-  console.log(req.query);
+  //console.log(req.query);
   sfDb.getFavs(req.query.userName, (err, docs) => {
+    if (err) {
+      res.status(400);
+      res.send(err)
+    } else {
+      res.send(docs);
+    }
+  })
+})
+
+app.put('/Favorites', (req, res) => {
+  //console.log(req.query, req.body);
+  sfDb.deleteFav(req.body.id, (err, docs) => {
     if (err) {
       res.status(400);
       res.send(err)

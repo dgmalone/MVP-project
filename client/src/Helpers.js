@@ -6,7 +6,7 @@ helpers.findAverage = (numName, bonds) => {
   let count = 0;
   bonds.forEach(bond => {
     if (bond[numName]) {
-      console.log(bond[numName])
+      //console.log(bond[numName])
       sum += parseInt(bond[numName]);
       count++
     }

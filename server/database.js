@@ -7,8 +7,14 @@ exports.getFavs = (userName, callback)=> {
   })
 }
 
+exports.deleteFav = (id, callback) => {
+  Favorites.deleteOne({_id: id}, (err, docs) => {
+    callback(err, docs)
+  })
+}
+
 exports.saveFilter = (data, callback) => {
-  console.log('saveFilter data:', data);
+  //console.log('saveFilter data:', data);
   Favorites.create(data, (err, docs) => {
     callback(err, docs)
   })

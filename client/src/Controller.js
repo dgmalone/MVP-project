@@ -11,8 +11,7 @@ serverCalls.getData = (filters) => {
   };
 
   return axios.get(serverURL + '/Bonds', { params })
-    .then(results => {
-      console.log(results.data);
+    .then(results => {;
       return results.data;
     })
     .catch(err => { return console.log('test', err); });
@@ -24,7 +23,7 @@ serverCalls.saveSearch = (userName, searchName, filters) => {
     userName: 'test',
     searchName: searchName
   };
-  console.log('dat', data)
+  //console.log('dat', data)
   return axios.post(serverURL + '/Bonds', data)
     .then(results => {
       return results.data;
@@ -33,14 +32,25 @@ serverCalls.saveSearch = (userName, searchName, filters) => {
 }
 
 serverCalls.getSearches = (userName) => {
-  console.log(userName)
+  //console.log(userName)
   let params = { userName }
   return axios.get(serverURL + '/Favorites', {params})
+    .then(results => {
+      //console.log(results.data);
+      return results.data;
+    })
+    .catch(err => { return console.log('test', err); });
+}
+
+serverCalls.deleteSearch = (id) => {
+  return axios.put(serverURL + '/Favorites', {id})
     .then(results => {
       console.log(results.data);
       return results.data;
     })
-    .catch(err => { return console.log('test', err); });
+    .catch(err => {
+      console.log(err)
+      return err; });
 }
 
 export default serverCalls

@@ -3,63 +3,6 @@ import serverCalls from '../Controller.js';
 import SavedSearches from './SavedSearches.jsx';
 function FilterForm(props) {
   const [open, setOpen] = useState(true);
-  const [savedList, setSavedList] = useState([
-    {
-        "filters": {
-            "FA": "",
-            "Counsel": "",
-            "SaleDateStart": "",
-            "SaleDateEnd": "",
-            "IssuerType": "",
-            "DebtType": "",
-            "RefundAmtMin": "",
-            "RefundAmtMax": "",
-            "SaleType": "",
-            "Issuer": ""
-        },
-        "_id": "60e650582a16634286894268",
-        "userName": "test",
-        "searchName": "bleh",
-        "__v": 0
-    },
-    {
-        "filters": {
-            "FA": "testnew",
-            "Counsel": "",
-            "SaleDateStart": "",
-            "SaleDateEnd": "",
-            "IssuerType": "",
-            "DebtType": "",
-            "RefundAmtMin": "",
-            "RefundAmtMax": "",
-            "SaleType": "",
-            "Issuer": ""
-        },
-        "_id": "60e653ebba1792433c209dc7",
-        "userName": "test",
-        "searchName": "bleh2",
-        "__v": 0
-    },
-    {
-      "filters": {
-          "FA": "",
-          "Counsel": "",
-          "SaleDateStart": "2011-07-07",
-          "SaleDateEnd": "2011-07-07",
-          "IssuerType": "",
-          "DebtType": "",
-          "RefundAmtMin": "",
-          "RefundAmtMax": "",
-          "SaleType": "",
-          "Issuer": ""
-      },
-      "_id": "60e661f2c4a87c467aa48544",
-      "userName": "test",
-      "searchName": "7-7-2011",
-      "__v": 0
-  }
-])
-  const [searchName, setSearchName] = useState('');
   const [values, setValues] = useState({
     FA: '',
     Counsel: '',
@@ -82,39 +25,43 @@ function FilterForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     setOpen(false);
-    //console.log(values)
     // call to server ?
     serverCalls.getData(values)
       .then(results => {
-        console.log('returned:', results)
         props.setNewBonds(results)
       })
   }
   const changeSearchName = (event) => {
     setSearchName(event.target.value)
   }
-  const saveSearch = (event) => {
+  const saveSearch = (searchName) => {
 
-    // call server
-    event.preventDefault();
-    serverCalls.saveSearch('test', searchName, values)
+    return serverCalls.saveSearch(props.userName, searchName, values)
   }
-  const clickOnSaved = (event) => {
+  const clickOnSaved = (filters) => {
     const index = event.target.id;
-    setValues(savedList[index].filters)
+    const emptyVals = {
+      FA: '',
+      Counsel: '',
+      SaleDateStart: '',
+      SaleDateEnd: '',
+      IssuerType: '',
+      DebtType: '',
+      RefundAmtMin: '',
+      RefundAmtMax: '',
+      SaleType: '',
+      Issuer: ''
+    }
+    setValues({...emptyVals, ...filters})
   }
-  useEffect (() => {
-    serverCalls.getSearches(props.userName)
-      .then(results => {
-        setSavedList(results)
-      })
-  }, [props.userName])
-  // Issuer:			D, F (low)
-// Underwriter:		D, F (low)
-// Placement Agent:	D, F (low)
-// CAB Flag:		D, F (low)
-// Guarantor:		D, F (low)
-// Discl Counsel:		D, F (low)
+  // useEffect (() => {
+  //   serverCalls.getSearches(props.userName)
+  //     .then(results => {
+  //       setSavedList(results)
+  //     })
+  // }, [props.userName])
+
+
 if (!open) {
   return <button onClick={toggleOpen}>Expand Filter </button>
 }
@@ -122,7 +69,15 @@ if (!open) {
     <div>
       Saved Searches:
       <div>
-        <SavedSearches  searches={savedList} handleSavedClick={clickOnSaved}/>
+        <SavedSearches  saveSearch={saveSearch} handleSavedClick={clickOnSaved} userName={props.userName}/>
+      {/* <form onSubmit={saveSearch}>
+      <label>
+        <input type='text' name='nameSearch' value={searchName} onChange={changeSearchName}/>
+      </label>
+      <button>
+        Save Search
+      </button>
+      </form> */}
       </div>
       Filter Search:
       <form className='filter-form' onSubmit={handleSubmit}>
@@ -153,14 +108,6 @@ if (!open) {
       <button onClick={toggleOpen}>
         Collapse Filter
       </button>
-      <form onSubmit={saveSearch}>
-      <label>
-        <input type='text' name='nameSearch' value={searchName} onChange={changeSearchName}/>
-      </label>
-      <button>
-        Save Search
-      </button>
-      </form>
     </div>
   )
 }
