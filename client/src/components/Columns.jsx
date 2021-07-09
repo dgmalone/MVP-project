@@ -32,7 +32,7 @@ function Columns(props) {
         Bond Counsel:
       </p>
       <p>
-        Audit Report:
+        Reports:
       </p>
     </div>
   )
