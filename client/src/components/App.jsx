@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import BondList from './BondList.jsx';
 import FilterForm from './FilterForm.jsx';
-import helpers from '../helpers.js';
+import helpers from '../Helpers.js';
 
 function App() {
   const [bonds, setBonds] = useState([])
