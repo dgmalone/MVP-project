@@ -67,17 +67,22 @@ function SavedSearches(props) {
 
   return (
     <div>
+      Your Searches:
       {savedList.map( (search, index) => {
         return <SavedSearchButton key={index} id={index} handleSavedClick={props.handleSavedClick}  info={search} deleteSearch={deleteSearch} updateSearchName={updateSearchName} handleUpdateFilter={handleUpdateFilter}/>
       })}
+      <div className="box">
+        Save Search:
       <form onSubmit={saveFiltersAsSearch}>
       <label>
+        Name:
         <input type='text' name='nameSearch' value={searchName} onChange={changeSearchName} required/>
       </label>
       <button>
-        Save Search
+        Save
       </button>
       </form>
+      </div>
     </div>
   )
 }

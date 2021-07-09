@@ -64,21 +64,23 @@ if (!open) {
   return (
     <div>
       <div>
-      Saved Searches:
         <SavedSearches  saveSearch={saveSearch} handleSavedClick={clickOnSaved} userName={props.userName}/>
       </div>
-      <button onClick={toggleOpen}>Expand Filter v</button>
+      <button onClick={toggleOpen}>Filters v</button>
     </div> )
 }
   return (
     <div>
       <div>
-      Saved Searches:
         <SavedSearches  saveSearch={saveSearch} handleSavedClick={clickOnSaved} userName={props.userName}/>
       </div>
+      <div>
       <button onClick={toggleOpen}>
-        Collapse Filter
+
+        Filters >
       </button>
+      </div>
+      <div className="boxed-form">
       Filter Search:
       <form className='filter-form' onSubmit={handleSubmit}>
         <label>
@@ -105,6 +107,7 @@ if (!open) {
         </label >
         <button>Filter Search</button>
       </form>
+      </div>
     </div>
   )
 }

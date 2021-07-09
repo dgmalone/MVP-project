@@ -14,9 +14,17 @@ input {
 .filter-form {
   display: flex;
   flex-direction: column;
+
+}
+.boxed-form {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 500px;
 }
 .filter-form > button {
   width: 100px;
+
 }
 
 p {
@@ -27,7 +35,12 @@ p {
   padding: 0px;
   margin: 0px;
 }
-
+.box {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  width: 250px;
+}
 .edit-savedSearch {
   display: flex;
   flex-direction: row;

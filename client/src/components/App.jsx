@@ -39,10 +39,11 @@ function App() {
     <div>
       <form onSubmit={updateUserName}>
       <label>
+        Enter Username:
         <input type='text' name='userName' value={inputName} onChange={handleChange} required/>
       </label>
       <button>
-        Confirm Username
+        Enter
       </button>
       </form>
       <FilterForm setNewBonds={updateBondList} userName={userName}/>
