@@ -11,10 +11,13 @@ function Columns(props) {
         Issuer:
       </p>
       <p>
+        Issuer Type:
+      </p>
+      <p>
         Sale Date:
       </p>
       <p>
-        Issuer Type:
+        Sale Type
       </p>
       <p>
         Principal Amount:

@@ -12,10 +12,13 @@ function Bond(props) {
         {props.info.issuer}
       </p>
       <p>
+        {props.info.issuer_type}
+      </p>
+      <p>
         {props.info.sale_date.substring(0, 10)}
       </p>
       <p>
-        {props.info.issuer_type}
+        {props.info.sale_type_comp_neg}
       </p>
       <p>
         ${props.info.principal_amount}
