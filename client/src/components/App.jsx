@@ -48,14 +48,14 @@ function App() {
       </form>
       <FilterForm setNewBonds={updateBondList} userName={userName}/>
       <div>
-        Averages:
+        Fee Averages:
         <ul>
           <li>
             Placement Agent Fee: $
             {averages.placement_agent_fee}
           </li>
           <li>
-            FA Fee: $
+            Financial Advisor Fee: $
             {averages.financial_advisor_fee}
           </li>
           <li>
