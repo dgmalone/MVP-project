@@ -8,7 +8,7 @@ input {
 }
 .tempFlex {
   display: grid;
-  grid-template-columns: 8% 10% 9% 9% 8% 9% 9% 9% 10%;
+  grid-template-columns: 8% 10% 9% 9% 8% 9% 9% 9% 10% 8%;
 }
 
 .filter-form {

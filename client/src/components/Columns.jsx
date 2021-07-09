@@ -31,6 +31,9 @@ function Columns(props) {
       <p>
         Bond Counsel:
       </p>
+      <p>
+        Audit Report:
+      </p>
     </div>
   )
 

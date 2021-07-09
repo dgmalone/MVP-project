@@ -32,6 +32,9 @@ function Bond(props) {
       <p>
         {props.info.bond_counsel}
       </p>
+      <p>
+        <a href={props.info.adtr_report.url}>Report</a>
+      </p>
     </div>
   )
 
