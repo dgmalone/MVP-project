@@ -50,19 +50,19 @@ function App() {
         Averages:
         <ul>
           <li>
-            Placement Agent Fee:
+            Placement Agent Fee: $
             {averages.placement_agent_fee}
           </li>
           <li>
-            FA Fee:
+            FA Fee: $
             {averages.financial_advisor_fee}
           </li>
           <li>
-            Bond Counsel Fee:
+            Bond Counsel Fee: $
             {averages.bond_counsel_fee}
           </li>
           <li>
-            Disclourse Counsel Fee:
+            Disclourse Counsel Fee: $
             {averages.disclosure_counsel_fee}
           </li>
         </ul>

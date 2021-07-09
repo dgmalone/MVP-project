@@ -14,7 +14,7 @@ helpers.findAverage = (numName, bonds) => {
   if (count === 0) {
     return 0;
   }
-  return sum / count
+  return Math.round((sum / count) * 100) / 100
 }
 
 

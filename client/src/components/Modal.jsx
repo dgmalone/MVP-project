@@ -7,7 +7,7 @@ const modal_styles = {
   position: 'fixed',
   left: '25%',
   padding: '50px',
-  backgroundColor: 'white',
+  backgroundColor: 'lightgray',
   zIndex: 10,
 };
 
