@@ -1,10 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext } from 'react';
 import BondList from './BondList.jsx';
 import FilterForm from './FilterForm.jsx';
 import helpers from '../Helpers.js';
-
+import { Theme, colors } from './Theme.jsx';
 function App() {
   const [bonds, setBonds] = useState([])
+  const color = useContext(Theme);
+  console.log(colors[color.themeColor], color)
+  const themeColor = {
+    backgroundColor: colors[color.themeColor],
+  }
   const updateBondList = (data) => {
     setBonds(data)
   }
@@ -36,7 +41,7 @@ function App() {
   }, [bonds])
 
   return (
-    <div>
+    <div style={themeColor}>
       <form onSubmit={updateUserName}>
       <label>
         Enter Username:

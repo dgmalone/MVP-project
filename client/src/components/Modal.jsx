@@ -1,15 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import ReactDOM from 'react-dom';
+import { Theme, colors } from './Theme.jsx';
 // could make more generic
 
-const modal_styles = {
-  top: '25%',
-  position: 'fixed',
-  left: '25%',
-  padding: '50px',
-  backgroundColor: 'lightgray',
-  zIndex: 10,
-};
 
 const form_style = {
   maxHeight: 'calc(100vh - 300px)',
@@ -28,6 +21,18 @@ const overlay_styles = {
 };
 
 function Modal (props) {
+  const color = useContext(Theme);
+  const themeColor = {
+    backgroundColor: colors[color.themeColor],
+  }
+  const modal_styles = {
+    top: '25%',
+    position: 'fixed',
+    left: '25%',
+    padding: '50px',
+    backgroundColor: colors[color.themeColor],
+    zIndex: 10,
+  };
   const [searchFilt, setSrchFilt] = useState({
     FA: '',
     Counsel: '',
@@ -40,6 +45,7 @@ function Modal (props) {
     SaleType: '',
     Issuer: ''
   })
+
   const handleChange = (event) => {
     let name = event.target.name
     setSrchFilt({...searchFilt, [name]: event.target.value})
