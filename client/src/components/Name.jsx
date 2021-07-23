@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import Modal from './Modal.jsx'
+import Modal from './Modal.jsx';
+import { Button } from '@material-ui/core';
+
 function Name(props) {
-  // expanded or collappsed
   const [editing, setEditing] = useState(false);
   const [newName, setNewName] =useState('');
   const [open, setOpen] = useState(false);
@@ -13,13 +14,11 @@ function Name(props) {
   }
   const updateSearch = (event) => {
     event.preventDefault();
-    // call server to make update
     props.updateSearchName(props.id, newName)
       .then(results => {
         setEditing(false);
       })
       .catch(err => { console.log(err)})
-    //setEditing(false);
   }
   const updateValue = (event) => {
     setNewName(event.target.value)
@@ -35,10 +34,10 @@ function Name(props) {
       <>
       <form onSubmit={updateSearch}>
         <input type='text' value={newName} onChange={updateValue}></input>
-        <button type='submit'>Save Name</button>
+        <Button color="primary" type='submit'>Save Name</Button>
       </form>
-      <button onClick={() => setOpen(true)}>Update Search</button>
-      <button onClick={cancelEdit}>Cancel</button>
+      <Button color="primary" onClick={() => setOpen(true)}>Update</Button>
+      <Button color="primary" onClick={cancelEdit}>Cancel</Button>
       <Modal open={open} filters={props.filters} searchName={props.searchName} id={props.id} closePopup={handlePopCancel} handleUpdateFilter={props.handleUpdateFilter}/>
       </>
     )

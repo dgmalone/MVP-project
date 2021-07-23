@@ -27,7 +27,7 @@ function SavedSearches(props) {
   }
   const deleteSearch = (event) => {
     event.preventDefault();
-    serverCalls.deleteSearch(event.target.id)
+    serverCalls.deleteSearch(event.target.parentNode.id)
       .then(res => {
         return serverCalls.getSearches(props.userName)
       })

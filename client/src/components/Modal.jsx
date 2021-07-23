@@ -66,7 +66,7 @@ function Modal (props) {
   }
   return ReactDOM.createPortal(
     <div>
-      <div style={overlay_styles}/>
+      <div style={overlay_styles} onClick={props.closePopup}/>
       <div style={modal_styles}>
       <h1>Update "{props.searchName}" search</h1>
         <button onClick={props.closePopup}>Exit</button>

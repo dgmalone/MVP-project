@@ -6,14 +6,14 @@ import { Theme, colors } from './Theme.jsx';
 function App() {
   const [bonds, setBonds] = useState([])
   const color = useContext(Theme);
-  console.log(colors[color.themeColor], color)
+  //console.log(colors[color.themeColor], color)
   const themeColor = {
     backgroundColor: colors[color.themeColor],
   }
   const updateBondList = (data) => {
     setBonds(data)
   }
-  const [userName, setUserName] = useState('')
+  const [userName, setUserName] = useState('Derek')
   const [inputName, setInputName] = useState('')
   const [averages, setAve] = useState({
     placement_agent_fee: 0,
