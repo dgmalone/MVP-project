@@ -44,8 +44,16 @@ p {
 .edit-savedSearch {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 5px;
 }
 .edit-savedSearch > div {
+  flex: 1 0 100%;
   padding: 0px 5px 0px 5px;
+}
+
+.paper {
+  background-color: whitesmoke;
+  max-width: 95%;
+  width: 650px;
 }

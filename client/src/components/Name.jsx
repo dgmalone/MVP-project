@@ -32,6 +32,9 @@ function Name(props) {
   if (editing) {
     return (
       <>
+      <div>
+      {props.searchName}
+     </div>
       <form onSubmit={updateSearch}>
         <input type='text' value={newName} onChange={updateValue}></input>
         <Button color="primary" type='submit'>Save Name</Button>
