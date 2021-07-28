@@ -20,7 +20,7 @@ helpers.findMedian = (numName, bonds) => {
   let list = [];
   let count = 0;
   bonds.forEach(bond => {
-    if (bond[numName] && bond[numName] !== 0) {
+    if (bond[numName] && bond[numName] != '0') {
       list.push(parseInt(bond[numName]));
       count++
     }
@@ -29,9 +29,11 @@ helpers.findMedian = (numName, bonds) => {
     return a - b
   })
   let mid = Math.floor(count / 2)
-  let median = sortArr.length % 2 !== 0 ? list[mid] : (sortArr[mid - 1] + sortArr[mid]) / 2;
+  let median = sortArr.length % 2 !== 0 ? sortArr[mid] : (sortArr[mid - 1] + sortArr[mid]) / 2;
   if (count === 0) {
     return 0;
+  } else {
+    return median
   }
 }
 

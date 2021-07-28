@@ -32,10 +32,10 @@ function App() {
   }
   useEffect ( () => {
     setAve({
-      'placement_agent_fee': helpers.findAverage('placement_agent_fee', bonds),
-      'financial_advisor_fee': helpers.findAverage('financial_advisor_fee', bonds),
-      'bond_counsel_fee': helpers.findAverage('bond_counsel_fee', bonds),
-      'disclosure_counsel_fee': helpers.findAverage('disclosure_counsel_fee', bonds)
+      'placement_agent_fee': helpers.findMedian('placement_agent_fee', bonds),
+      'financial_advisor_fee': helpers.findMedian('financial_advisor_fee', bonds),
+      'bond_counsel_fee': helpers.findMedian('bond_counsel_fee', bonds),
+      'disclosure_counsel_fee': helpers.findMedian('disclosure_counsel_fee', bonds)
     })
 
   }, [bonds])
@@ -53,7 +53,7 @@ function App() {
       </form>
       <FilterForm setNewBonds={updateBondList} userName={userName}/>
       <div>
-        Fee Averages:
+        Median Fees:
         <ul>
           <li>
             Placement Agent Fee: $
