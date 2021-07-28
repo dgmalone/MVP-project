@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext } from 'react';
 import BondList from './BondList.jsx';
 import FilterForm from './FilterForm.jsx';
+import Percentiles from './Percentiles.jsx';
 import helpers from '../Helpers.js';
 import { Theme, colors } from './Theme.jsx';
 function App() {
@@ -16,10 +17,10 @@ function App() {
   const [userName, setUserName] = useState('Derek')
   const [inputName, setInputName] = useState('')
   const [averages, setAve] = useState({
-    placement_agent_fee: 0,
-    financial_advisor_fee: 0,
-    bond_counsel_fee: 0,
-    disclosure_counsel_fee: 0
+    placement_agent_fee: [0, 0, 0, 0],
+    financial_advisor_fee: [0, 0, 0, 0],
+    bond_counsel_fee: [0, 0, 0, 0],
+    disclosure_counsel_fee: [0, 0, 0, 0]
   })
 
   const updateUserName = () => {
@@ -52,24 +53,25 @@ function App() {
       </button>
       </form>
       <FilterForm setNewBonds={updateBondList} userName={userName}/>
+      <Percentiles averages={averages}/>
       <div>
         Median Fees:
         <ul>
           <li>
             Placement Agent Fee: $
-            {averages.placement_agent_fee}
+            {averages.placement_agent_fee[1]}
           </li>
           <li>
             Financial Advisor Fee: $
-            {averages.financial_advisor_fee}
+            {averages.financial_advisor_fee[1]}
           </li>
           <li>
             Bond Counsel Fee: $
-            {averages.bond_counsel_fee}
+            {averages.bond_counsel_fee[1]}
           </li>
           <li>
             Disclourse Counsel Fee: $
-            {averages.disclosure_counsel_fee}
+            {averages.disclosure_counsel_fee[1]}
           </li>
         </ul>
       </div>
