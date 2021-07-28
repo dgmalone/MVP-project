@@ -32,7 +32,7 @@ function Name(props) {
   if (editing) {
     return (
       <>
-      <div>
+      <div >
       {props.searchName}
      </div>
       <form onSubmit={updateSearch}>
