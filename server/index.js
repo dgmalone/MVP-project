@@ -21,7 +21,6 @@ app.get('/Bonds', (req, res) => {
       res.send(err)
     }
     )
-  // headers X-App-Token
 
 })
 
@@ -58,7 +57,6 @@ app.put('/Favorites/Delete', (req, res) => {
   })
 })
 app.put('/Favorites/UpdateName', (req, res) => {
-  //console.log(req.query, req.body);
   sfDb.updateFav(req.body, (err, docs) => {
     if (err) {
       res.status(400);
