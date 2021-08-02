@@ -21,10 +21,10 @@ function Bond(props) {
         {props.info.sale_type_comp_neg}
       </p>
       <p>
-        ${props.info.principal_amount}
+        ${new Intl.NumberFormat().format(props.info.principal_amount).toString()}
       </p>
       <p>
-        ${props.info.refunding_amount}
+        ${new Intl.NumberFormat().format(props.info.refunding_amount).toString()}
       </p>
       <p>
         {props.info.debt_type}

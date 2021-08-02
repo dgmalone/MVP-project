@@ -17,7 +17,7 @@ function Columns(props) {
         Sale Date:
       </p>
       <p>
-        Sale Type
+        Sale Type:
       </p>
       <p>
         Principal Amount:
