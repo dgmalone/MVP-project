@@ -4,6 +4,8 @@ import FilterForm from './FilterForm.jsx';
 import Percentiles from './Percentiles.jsx';
 import helpers from '../Helpers.js';
 import { Theme, colors } from './Theme.jsx';
+import { CSVLink } from 'react-csv';
+
 function App() {
   const [bonds, setBonds] = useState([])
   const color = useContext(Theme);
@@ -75,6 +77,7 @@ function App() {
           </li>
         </ul>
       </div>
+      <CSVLink data={bonds} >Download Table (CSV)</CSVLink>
       <BondList bonds={bonds}/>
     </div>
   )
