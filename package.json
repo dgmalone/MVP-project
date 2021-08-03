@@ -22,8 +22,10 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-dev": "webpack -w",
-    "start": "nodemon server/index.js"
+    "build-dev": "webpack -w",
+    "start": "nodemon server/index.js",
+    "start-prod": "node server/index.js",
+    "build-prod": "webpack"
   },
   "repository": {
     "type": "git",
