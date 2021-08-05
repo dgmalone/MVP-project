@@ -12,19 +12,19 @@ APIcalls.fetchData = (filter) => {
     $where: 'refunding_amount >= ' + refMin + ' AND refunding_amount <= ' + refMax + ' AND sale_date >= "' + saleMin + '" AND sale_date <= "' + saleMax + '"'
   }
   if (filter.Counsel !== '') {
-    params.bond_counsel = filter.Counsel;
+    params.$where+= ' AND bond_counsel like "%' + filter.Counsel + '%"';
   }
   if (filter.DebtType !== '') {
-    params.debt_type = filter.DebtType;
+    params.$where+= ' AND debt_type like "%' + filter.DebtType + '%"';
   }
   if (filter.FA !== '') {
-    params.financial_advisor = filter.FA;
+    params.$where+= ' AND financial_advisor like "%' + filter.FA + '%"';
   }
   if (filter.Issuer !== '') {
-    params.issuer = filter.Issuer;
+    params.$where+= ' AND issuer like "%' + filter.Issuer + '%"';
   }
   if (filter.IssuerType !== '') {
-    params.issuer_type = filter.IssuerType;
+    params.$where+= ' AND issuer_type like "%' + filter.IssuerType + '%"';
   }
 
   let headers = config.auth.headers
