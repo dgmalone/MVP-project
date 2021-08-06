@@ -1,7 +1,7 @@
 # MVP-project
 
 ## Overview
-This repository houses an application which displays information about debt issued by state and local government agencies in Calofornia from CDIAC via a Socrata API.
+This repository houses an application that displays information about debt issued by state and local government agencies in California from CDIAC via a Socrata API.
 
 ## Description
 Users can use searches to filter information down. See below for the current list of filterable columns.
@@ -24,7 +24,7 @@ The filters are used to make calls to the CDA All Data API from Socrata. Additio
 
 ## Installation
 Fork and clone this repository. 
-Thne run 
+Then run 
 ```
 npm install 
 ```
