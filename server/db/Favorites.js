@@ -12,6 +12,8 @@ const favoritesSchema = new mongoose.Schema({
     DebtType: String,
     RefundAmtMin: String,
     RefundAmtMax: String,
+    PrincAmtMin: String,
+    PrincAmtMax: String,
     SaleType: String,
     Issuer: String
   }
