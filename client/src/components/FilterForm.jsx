@@ -12,6 +12,8 @@ function FilterForm(props) {
     DebtType: '',
     RefundAmtMin: '',
     RefundAmtMax: '',
+    PrincAmtMin: '',
+    PrincAmtMax: '',
     SaleType: '',
     Issuer: ''
   })
@@ -25,7 +27,6 @@ function FilterForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     setOpen(false);
-    // call to server ?
     serverCalls.getData(values)
       .then(results => {
         props.setNewBonds(results)
@@ -98,6 +99,9 @@ if (!open) {
         </label>
         <label>
            Sale Type: <input type='text' name='SaleType' value={values.SaleType} onChange={handleChange}/>
+        </label>
+        <label>
+           Principal Amount Range: <input type='number' name='PrincAmtMin' value={values.PrincAmtMin} onChange={handleChange}/> to <input type='number' name='PrincAmtMax' value={values.PrincAmtMax} onChange={handleChange}/>
         </label>
         <label>
            Refund Amount Range: <input type='number' name='RefundAmtMin' value={values.RefundAmtMin} onChange={handleChange}/> to <input type='number' name='RefundAmtMax' value={values.RefundAmtMax} onChange={handleChange}/>
