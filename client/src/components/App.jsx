@@ -9,7 +9,6 @@ import { CSVLink } from 'react-csv';
 function App() {
   const [bonds, setBonds] = useState([])
   const color = useContext(Theme);
-  //console.log(colors[color.themeColor], color)
   const themeColor = {
     backgroundColor: colors[color.themeColor],
   }
@@ -56,27 +55,6 @@ function App() {
       </form>
       <FilterForm setNewBonds={updateBondList} userName={userName}/>
       <Percentiles averages={averages}/>
-      <div>
-        Median Fees:
-        <ul>
-          <li>
-            Placement Agent Fee: $
-            {averages.placement_agent_fee[1]}
-          </li>
-          <li>
-            Financial Advisor Fee: $
-            {averages.financial_advisor_fee[1]}
-          </li>
-          <li>
-            Bond Counsel Fee: $
-            {averages.bond_counsel_fee[1]}
-          </li>
-          <li>
-            Disclourse Counsel Fee: $
-            {averages.disclosure_counsel_fee[1]}
-          </li>
-        </ul>
-      </div>
       <CSVLink data={bonds} >Download Table (CSV)</CSVLink>
       <BondList bonds={bonds}/>
     </div>
