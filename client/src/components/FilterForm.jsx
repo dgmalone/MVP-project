@@ -50,6 +50,8 @@ function FilterForm(props) {
       DebtType: '',
       RefundAmtMin: '',
       RefundAmtMax: '',
+      PrincAmtMin: '',
+      PrincAmtMax: '',
       SaleType: '',
       Issuer: ''
     }
