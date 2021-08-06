@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Name from './Name.jsx';
 import { Button, Paper } from '@material-ui/core';
-//import { makeStyles } from '@material-ui/core/styles';
 
 function SavedSearchButton(props) {
 
