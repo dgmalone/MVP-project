@@ -42,6 +42,8 @@ function Modal (props) {
     DebtType: '',
     RefundAmtMin: '',
     RefundAmtMax: '',
+    PrincAmtMin: '',
+    PrincAmtMax: '',
     SaleType: '',
     Issuer: ''
   })
@@ -89,6 +91,9 @@ function Modal (props) {
            Sale Type: <input type='text' name='SaleType' value={searchFilt.SaleType} onChange={handleChange}/>
         </label>
         <label>
+           Principal Amount Range: <input type='number' name='PrincAmtMin' value={searchFilt.PrincAmtMin} onChange={handleChange}/> to <input type='number' name='PrincAmtMax' value={searchFilt.PrincAmtMax} onChange={handleChange}/>
+        </label>
+        <label>
            Refund Amount Range: <input type='number' name='RefundAmtMin' value={searchFilt.RefundAmtMin} onChange={handleChange}/> to <input type='number' name='RefundAmtMax' value={searchFilt.RefundAmtMax} onChange={handleChange}/>
         </label>
         <label>
@@ -100,7 +105,6 @@ function Modal (props) {
       </form>
         </div>
       </div>
-      {/* <button onClick={onClose}>Submit</button> */}
     </div>,
     document.getElementById('portal')
   );

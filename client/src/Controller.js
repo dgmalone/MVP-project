@@ -2,7 +2,7 @@ import axios from 'axios';
 
 let serverCalls = {};
 
-let serverURL = 'http://localhost:3000';
+let serverURL = '';
 
 serverCalls.getData = (filters) => {
 
