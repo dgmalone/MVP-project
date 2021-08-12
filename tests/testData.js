@@ -16,12 +16,11 @@ let data = {
     secondNum: 0
   },
   {
-    testNum: 0,
-    secondNum: 0
+    testNum: 0
   },
   {
     testNum: 0,
-    secondNum: 0
+    secondNum: 1000
   }
 ],
 even: [{
@@ -75,6 +74,16 @@ odd: [{
 {
   testNum: 151515
 }
+],
+lessThanFour: [{
+  testNum: 55
+},
+{
+  testNum: 5
+},
+{
+  testNum: 11
+},
 ]
 }
 
