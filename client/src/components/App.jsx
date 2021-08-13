@@ -21,7 +21,8 @@ function App() {
     placement_agent_fee: [0, 0, 0, 0],
     financial_advisor_fee: [0, 0, 0, 0],
     bond_counsel_fee: [0, 0, 0, 0],
-    disclosure_counsel_fee: [0, 0, 0, 0]
+    disclosure_counsel_fee: [0, 0, 0, 0],
+    trustee_fee: [0, 0, 0, 0]
   })
 
   const updateUserName = () => {
@@ -37,7 +38,8 @@ function App() {
       'placement_agent_fee': helpers.findMedian('placement_agent_fee', bonds),
       'financial_advisor_fee': helpers.findMedian('financial_advisor_fee', bonds),
       'bond_counsel_fee': helpers.findMedian('bond_counsel_fee', bonds),
-      'disclosure_counsel_fee': helpers.findMedian('disclosure_counsel_fee', bonds)
+      'disclosure_counsel_fee': helpers.findMedian('disclosure_counsel_fee', bonds),
+      'trustee_fee': helpers.findMedian('trustee_fee', bonds)
     })
 
   }, [bonds])

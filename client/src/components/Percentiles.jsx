@@ -46,6 +46,13 @@ function Percentiles(props) {
             <td>${percentiles.disclosure_counsel_fee[2]}</td>
             <td>{percentiles.disclosure_counsel_fee[3]}</td>
         </tr>
+        <tr>
+            <td>Trustee Fee</td>
+            <td>${percentiles.trustee_fee[0]}</td>
+            <td>${percentiles.trustee_fee[1]}</td>
+            <td>${percentiles.trustee_fee[2]}</td>
+            <td>{percentiles.trustee_fee[3]}</td>
+        </tr>
     </tbody>
 </table>
     </div>
