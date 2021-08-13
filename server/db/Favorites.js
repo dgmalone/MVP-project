@@ -15,7 +15,9 @@ const favoritesSchema = new mongoose.Schema({
     PrincAmtMin: String,
     PrincAmtMax: String,
     SaleType: String,
-    Issuer: String
+    Issuer: String,
+    cdiacNo: String,
+    County: String
   }
 })
 

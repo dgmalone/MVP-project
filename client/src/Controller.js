@@ -5,7 +5,7 @@ let serverCalls = {};
 let serverURL = '';
 
 serverCalls.getData = (filters) => {
-
+  console.log(filters)
   let params = {
     filters: filters
   };
