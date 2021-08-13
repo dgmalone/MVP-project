@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import ReactDOM from 'react-dom';
 import { Theme, colors } from './Theme.jsx';
+import helpers from '../Helpers.js'
 // could make more generic
 
 
@@ -33,20 +34,7 @@ function Modal (props) {
     backgroundColor: colors[color.themeColor],
     zIndex: 10,
   };
-  const [searchFilt, setSrchFilt] = useState({
-    FA: '',
-    Counsel: '',
-    SaleDateStart: '',
-    SaleDateEnd: '',
-    IssuerType: '',
-    DebtType: '',
-    RefundAmtMin: '',
-    RefundAmtMax: '',
-    PrincAmtMin: '',
-    PrincAmtMax: '',
-    SaleType: '',
-    Issuer: ''
-  })
+  const [searchFilt, setSrchFilt] = useState(helpers.filters)
 
   const handleChange = (event) => {
     let name = event.target.name
@@ -75,6 +63,10 @@ function Modal (props) {
         <div style={form_style}>
         <form className='filter-form' onSubmit={handleSubmit}>
         <label>
+          CDIAC Number:
+          <input type='text' name='cdiacNo' value={searchFilt.cdiacNo} onChange={handleChange}/>
+        </label>
+        <label>
           Financial Advisor: <input type='text' name='FA' value={searchFilt.FA} onChange={handleChange}/>
         </label>
         <label>
@@ -85,8 +77,17 @@ function Modal (props) {
           Sale Date Range: <input type='date' name='SaleDateStart' value={searchFilt.SaleDateStart} onChange={handleChange}/> to <input type='date' name='SaleDateEnd' value={searchFilt.SaleDateEnd} onChange={handleChange}/>
         </label>
         <label>
+           County: <input type='text' name='County' value={searchFilt.County} onChange={handleChange}/>
+        </label>
+        <label>
+           Issuer: <input type='text' name='Issuer' value={searchFilt.Issuer} onChange={handleChange}/>
+        </label>
+        <label>
            Issuer Type: <input type='text' name='IssuerType' value={searchFilt.IssuerType} onChange={handleChange}/>
         </label>
+        <label>
+           Debt Type: <input type='text' name='DebtType' value={searchFilt.DebtType} onChange={handleChange}/>
+        </label >
         <label>
            Sale Type: <input type='text' name='SaleType' value={searchFilt.SaleType} onChange={handleChange}/>
         </label>
@@ -96,9 +97,6 @@ function Modal (props) {
         <label>
            Refund Amount Range: <input type='number' name='RefundAmtMin' value={searchFilt.RefundAmtMin} onChange={handleChange}/> to <input type='number' name='RefundAmtMax' value={searchFilt.RefundAmtMax} onChange={handleChange}/>
         </label>
-        <label>
-           Debt Type: <input type='text' name='DebtType' value={searchFilt.DebtType} onChange={handleChange}/>
-        </label >
         <div>
           <button>Update Search</button>
         </div>

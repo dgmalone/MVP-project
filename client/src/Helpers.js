@@ -58,4 +58,22 @@ helpers.formatNum = (numbers) => {
   return result;
 }
 
+helpers.filters = {
+  FA: '',
+  Counsel: '',
+  SaleDateStart: '',
+  SaleDateEnd: '',
+  IssuerType: '',
+  DebtType: '',
+  RefundAmtMin: '',
+  RefundAmtMax: '',
+  PrincAmtMin: '',
+  PrincAmtMax: '',
+  SaleType: '',
+  Issuer: '',
+  cdiacNo: '',
+  County: '',
+  PrivatePlacement: ''
+}
+
 export default helpers;
