@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext } from 'react';
 import BondList from './BondList.jsx';
+import BondTable from './BondTable.jsx';
 import FilterForm from './FilterForm.jsx';
 import Percentiles from './Percentiles.jsx';
 import helpers from '../Helpers.js';
@@ -57,6 +58,7 @@ function App() {
       </form>
       <FilterForm setNewBonds={updateBondList} userName={userName}/>
       <Percentiles averages={averages}/>
+      <BondTable/>
       <CSVLink data={bonds} >Download Table (CSV)</CSVLink>
       <BondList bonds={bonds}/>
     </div>
