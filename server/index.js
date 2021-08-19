@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
-const APIcalls = require('./brain.js')
+const brain = require('./brain.js')
 const db = require('./db/connection')
 const sfDb = require('./database.js')
 app.use(express.static('./client/dist'))
@@ -12,8 +12,10 @@ app.get('/', (req, res) => {
 })
 
 app.get('/Bonds', (req, res) => {
-  APIcalls.fetchData(JSON.parse(req.query.filters))
+  brain.fetchData(JSON.parse(req.query.filters))
     .then(results => {
+      //console.log(results.data[0])
+      var formatedData = brain.formatData(results.data);
       res.send(results.data)
     })
     .catch(err => {

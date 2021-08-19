@@ -3,30 +3,52 @@ import { useTable } from 'react-table';
 
 var cols = [
   {
-    Header: 'Id',
-    accessor: 'id'
+    Header: 'Number',
+    accessor: 'cdiac_number'
   },
   {
-    Header: 'Bond',
-    accessor: 'bond'
-  }
-]
-var testData = [
-  {
-    id: 1,
-    bond: 'test'
+    Header: 'Issuer',
+    accessor: 'issuer'
   },
   {
-    id: 2,
-    bond: 'second'
+    Header: 'Issuer Type',
+    accessor: 'issuer_type'
+  },
+  {
+    Header: 'Sale Date',
+    accessor: 'sale_date'
+  },
+  {
+    Header: 'Sale Type',
+    accessor: 'sale_type_comp_neg'
+  },
+  {
+    Header: 'Principal Amount',
+    accessor: 'principal_amount'
+  },
+  {
+    Header: 'Refunding Amount',
+    accessor: 'refunding_amount'
+  },
+  {
+    Header: 'Debt Type',
+    accessor: 'debt_type'
+  },
+  {
+    Header: 'Financial Advisor',
+    accessor: 'financial_advisor'
+  },
+  {
+    Header: 'Bond Counsel',
+    accessor: 'bond_counsel'
   }
 ]
 function BondTable(props) {
   const columns = useMemo(() => cols, []);
-  const data = useMemo(() => testData, []);
+  // const data = useMemo(() => props.bonds, []);
   const tableInstance = useTable({
-    columns,
-    data
+    columns: columns,
+    data: props.bonds
   })
 
   const {

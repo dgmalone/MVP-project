@@ -58,7 +58,7 @@ function App() {
       </form>
       <FilterForm setNewBonds={updateBondList} userName={userName}/>
       <Percentiles averages={averages}/>
-      <BondTable/>
+      <BondTable bonds={bonds}/>
       <CSVLink data={bonds} >Download Table (CSV)</CSVLink>
       <BondList bonds={bonds}/>
     </div>

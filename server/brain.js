@@ -1,9 +1,9 @@
 const axios = require('axios');
 const config = require('./APIconfig.js');
 
-let APIcalls = {}
+let brain = {}
 
-APIcalls.fetchData = (filter) => {
+brain.fetchData = (filter) => {
   // console.log(filter)
   const saleMin = filter.SaleDateStart ? filter.SaleDateStart + 'T00:00:00.000': '1900-01-01T00:00:00.000'
   const saleMax = filter.SaleDateEnd ? filter.SaleDateEnd + 'T00:00:00.000' : '3021-05-21T00:00:00.000'
@@ -45,4 +45,22 @@ APIcalls.fetchData = (filter) => {
   return axios.get(config.url, {params, headers})
 }
 
-module.exports = APIcalls;
+brain.formatData = (data) => {
+  // console.log('test')
+  // console.log(data[0])
+  data.forEach(bond => {
+    for (var key in bond) {
+      //console.log(key)
+      if (key.includes('_amount') || key.includes('_expenses')) {
+        //console.log(key)
+        bond[key] = `$${new Intl.NumberFormat().format(bond[key]).toString()}`
+      }
+      if (key.includes('_date')) {
+        bond[key] = bond[key].substring(0, 10)
+      }
+    }
+  })
+  return data;
+}
+
+module.exports = brain;
