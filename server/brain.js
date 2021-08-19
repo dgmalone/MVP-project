@@ -46,13 +46,9 @@ brain.fetchData = (filter) => {
 }
 
 brain.formatData = (data) => {
-  // console.log('test')
-  // console.log(data[0])
   data.forEach(bond => {
     for (var key in bond) {
-      //console.log(key)
       if (key.includes('_amount') || key.includes('_expenses')) {
-        //console.log(key)
         bond[key] = `$${new Intl.NumberFormat().format(bond[key]).toString()}`
       }
       if (key.includes('_date')) {

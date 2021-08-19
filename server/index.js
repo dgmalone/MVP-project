@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 app.get('/Bonds', (req, res) => {
   brain.fetchData(JSON.parse(req.query.filters))
     .then(results => {
-      //console.log(results.data[0])
       var formatedData = brain.formatData(results.data);
       res.send(results.data)
     })
