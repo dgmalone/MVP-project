@@ -17,7 +17,8 @@ const favoritesSchema = new mongoose.Schema({
     SaleType: String,
     Issuer: String,
     cdiacNo: String,
-    County: String
+    County: String,
+    PrivatePlacement: String
   }
 })
 

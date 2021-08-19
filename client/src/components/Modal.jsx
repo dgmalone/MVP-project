@@ -97,6 +97,14 @@ function Modal (props) {
         <label>
            Refund Amount Range: <input type='number' name='RefundAmtMin' value={searchFilt.RefundAmtMin} onChange={handleChange}/> to <input type='number' name='RefundAmtMax' value={searchFilt.RefundAmtMax} onChange={handleChange}/>
         </label>
+        <label>
+           Private Placement:
+            <select name="PrivatePlacement" onChange={handleChange}  value={searchFilt.PrivatePlacement}>
+              <option value=""> -- </option>
+              <option value="Yes"> Yes </option>
+              <option value="No"> No </option>
+            </select>
+        </label>
         <div>
           <button>Update Search</button>
         </div>

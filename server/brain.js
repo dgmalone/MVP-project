@@ -4,7 +4,7 @@ const config = require('./APIconfig.js');
 let APIcalls = {}
 
 APIcalls.fetchData = (filter) => {
-  console.log(filter)
+  // console.log(filter)
   const saleMin = filter.SaleDateStart ? filter.SaleDateStart + 'T00:00:00.000': '1900-01-01T00:00:00.000'
   const saleMax = filter.SaleDateEnd ? filter.SaleDateEnd + 'T00:00:00.000' : '3021-05-21T00:00:00.000'
   const refMin = filter.RefundAmtMin ? filter.RefundAmtMin : 0;
@@ -37,6 +37,9 @@ APIcalls.fetchData = (filter) => {
   }
   if (filter.County !== '' && filter.County !== undefined) {
     params.$where+= ' AND issuer_county like "%' + filter.County + '%"';
+  }
+  if (filter.PrivatePlacement !== '' && filter.PrivatePlacement !== undefined) {
+    params.$where+= ' AND private_placement_flag like "%' + filter.PrivatePlacement + '%"';
   }
   let headers = config.auth.headers
   return axios.get(config.url, {params, headers})

@@ -96,6 +96,14 @@ if (!open) {
         <label>
            Refund Amount Range: <input type='number' name='RefundAmtMin' value={values.RefundAmtMin} onChange={handleChange}/> to <input type='number' name='RefundAmtMax' value={values.RefundAmtMax} onChange={handleChange}/>
         </label>
+        <label>
+           Private Placement:
+            <select name="PrivatePlacement" onChange={handleChange}  value={values.PrivatePlacement}>
+              <option value=""> -- </option>
+              <option value="YES"> Yes </option>
+              <option value="NO"> No </option>
+            </select>
+        </label>
         <button>Filter Search</button>
       </form>
       </div>
