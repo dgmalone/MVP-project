@@ -21,10 +21,10 @@ function Bond(props) {
         {props.info.sale_type_comp_neg}
       </p>
       <p>
-        ${props.info.principal_amount}
+        {props.info.principal_amount}
       </p>
       <p>
-        ${props.info.refunding_amount}
+        {props.info.refunding_amount}
       </p>
       <p>
         {props.info.debt_type}
